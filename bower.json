@@ -1,0 +1,22 @@
+{
+  "name": "CRM",
+  "authors": [
+    "Javier <javierho93@hotmail.com>"
+  ],
+  "description": "Simple CRM in AngularJS",
+  "main": "main.js",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "bootstrap": "^3.3.7"
+  }
+}
