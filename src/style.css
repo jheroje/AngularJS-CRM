@@ -28,3 +28,7 @@ nav.navbar {
   margin: 0;
   background-color: rgba(255, 255, 255, 0.6);
 }
+
+button .glyphicon {
+  vertical-align: middle;
+}
