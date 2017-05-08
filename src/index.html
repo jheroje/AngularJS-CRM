@@ -12,55 +12,59 @@
 </head>
 
 <body>
+  <!-- Nav Bar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <a class="navbar-brand" href="#">CRM</a>
     <form class="navbar-form navbar-right input-group" role="search">
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" ng-model="search" class="form-control" placeholder="Search">
       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
     </form>
   </nav>
 
   <div class="container-fluid" role="main">
     <div class="row">
+      <!-- Dashboard & Thumbnails -->
       <div class="col-md-8" id="dashboard">
-        <div class="thumbnail col-md-4">
-          <img src="http://placehold.it/300x200" alt="...">
+        <div class="thumbnail col-md-4" ng-repeat="user in users | filter: search">
+          <img src="{{user.photo}}" alt="photo">
           <div class="caption">
-            <h3>User</h3>
-            <p class="small"><strong>Phone</strong></p>
-            <p>Description</p>
+            <h3>{{user.name}}</h3>
+            <p class="small"><strong>{{user.phone}}</strong></p>
+            <p>{{user.description}}</p>
             <div class="btn-group pull-right">
-              <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
-              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button type="submit" ng-click="edit(user)" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button type="submit" ng-click="remove(user)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </div>
           </div>
         </div>
       </div>
+      <!-- Sidebar & Form -->
       <div class="col-md-4" id="sidebar">
         <form>
           <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" ng-model="new.name" id="name">
           </div>
           <div class="form-group">
             <label for="image">Photo URL:</label>
-            <input type="text" class="form-control" id="image">
+            <input type="text" class="form-control" ng-model="new.photo" id="image">
           </div>
           <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="text" class="form-control" id="phone">
+            <input type="text" class="form-control" ng-model="new.phone" id="phone">
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
-            <textarea rows="5" class="form-control" id="description"></textarea>
+            <textarea rows="5" class="form-control" ng-model="new.description" id="description"></textarea>
           </div>
           <div class="form-group">
             <label for="other">Other:</label>
-            <input type="text" class="form-control" id="other">
+            <input type="text" class="form-control" ng-model="new.other" id="other">
           </div>
           <div class="btn-group pull-right">
-            <button type="submit" class="btn btn-success btn-lg">Submit</button>
-            <button type="submit" class="btn btn-danger btn-lg">Reset</button>
+            <button type="submit" ng-if="editing" ng-click="modify(new)" class="btn btn-warning btn-lg">Modify</button>
+            <button type="submit" ng-if="!editing" ng-click="create(new)" class="btn btn-success btn-lg">Submit</button>
+            <button type="submit" ng-click="reset()" class="btn btn-danger btn-lg">Reset</button>
           </div>
         </form>
       </div>
