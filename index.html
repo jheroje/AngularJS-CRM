@@ -25,7 +25,7 @@
     <div class="row">
       <!-- Dashboard & Thumbnails -->
       <div class="col-md-8" id="dashboard">
-        <div class="thumbnail col-md-4" ng-repeat="user in users | filter: search">
+        <div class="thumbnail col-md-4" ng-repeat="user in users | filter: search track by $index">
           <img src="{{user.photo}}" alt="photo">
           <div class="caption">
             <h3>{{user.name}}</h3>

@@ -17,15 +17,20 @@
     $scope.modify = modify;
     $scope.remove = remove;
     $scope.editing = false;
-    activate();
+    load();
 
     ////////////////
 
-    function activate() {}
+    function load() {
+      if ("users" in localStorage) {
+        $scope.users = JSON.parse(localStorage.getItem("users"));
+      }
+    }
 
     function create(user) {
       $scope.users.push(user);
       reset();
+      save();
     }
 
     function reset() {
@@ -48,6 +53,11 @@
 
     function remove(user) {
       $scope.users = $scope.users.filter((el) => (el !== user));
+      save();
+    }
+
+    function save() {
+      localStorage.setItem("users", JSON.stringify($scope.users));
     }
   }
 }());
