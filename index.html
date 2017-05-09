@@ -26,10 +26,12 @@
       <!-- Dashboard & Thumbnails -->
       <div class="col-md-8" id="dashboard">
         <div class="thumbnail col-md-4" ng-repeat="user in users | filter: search track by $index">
-          <img src="{{user.photo}}" alt="photo">
+          <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
+          <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
           <div class="caption">
             <h3>{{user.name}}</h3>
             <p class="small"><strong>{{user.phone}}</strong></p>
+            <p>{{user.position}}</p>
             <p>{{user.description}}</p>
             <div class="btn-group pull-right">
               <button type="submit" ng-click="edit(user)" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -40,30 +42,34 @@
       </div>
       <!-- Sidebar & Form -->
       <div class="col-md-4" id="sidebar">
-        <form>
+        <form name="userForm" novalidate>
           <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" ng-model="new.name" id="name">
+            <input type="text" class="form-control" name="name" ng-model="new.name" ng-required="true" id="name">
           </div>
           <div class="form-group">
             <label for="image">Photo URL:</label>
-            <input type="text" class="form-control" ng-model="new.photo" id="image">
+            <input type="text" class="form-control" name="image" ng-model="new.photo" id="image">
           </div>
           <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="text" class="form-control" ng-model="new.phone" id="phone">
+            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" id="phone">
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
-            <textarea rows="5" class="form-control" ng-model="new.description" id="description"></textarea>
+            <textarea rows="5" class="form-control" name="description" ng-model="new.description" ng-required="true" id="description"></textarea>
           </div>
           <div class="form-group">
-            <label for="other">Other:</label>
-            <input type="text" class="form-control" ng-model="new.other" id="other">
+            <label for="position">Position:</label><br>
+            <select class="form-control" name="position" ng-model="new.position" ng-required="true" id="position">
+              <option>Front End</option>
+              <option>Back End</option>
+              <option>Full Stack</option>
+            </select>
           </div>
           <div class="btn-group pull-right">
-            <button type="submit" ng-if="editing" ng-click="modify(new)" class="btn btn-warning btn-lg">Modify</button>
-            <button type="submit" ng-if="!editing" ng-click="create(new)" class="btn btn-success btn-lg">Submit</button>
+            <button type="submit" ng-if="editing" ng-disabled="userForm.$invalid" ng-click="modify(new)" class="btn btn-warning btn-lg">Modify</button>
+            <button type="submit" ng-if="!editing" ng-disabled="userForm.$invalid" ng-click="create(new)" class="btn btn-success btn-lg">Submit</button>
             <button type="submit" ng-click="reset()" class="btn btn-danger btn-lg">Reset</button>
           </div>
         </form>
