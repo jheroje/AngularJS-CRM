@@ -14,17 +14,27 @@
 <body>
   <!-- Nav Bar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <a class="navbar-brand" href="#">CRM</a>
-    <form class="navbar-form navbar-right input-group" role="search">
-      <input type="text" ng-model="search" class="form-control" placeholder="Search">
-      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-    </form>
+    <div class="container-fluid">
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand" href="#">CRM</a>
+      </div>
+      <div class="navbar-header pull-right">
+        <form class="navbar-form" role="search">
+          <div class="input-group">
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </nav>
 
   <div class="container-fluid" ng-cloak role="main">
     <div class="row">
       <!-- Dashboard & Thumbnails -->
-      <div class="col-md-8 col-sm-8" id="dashboard">
+      <div class="col-md-8 col-sm-8 col-xs-12" id="dashboard">
         <div class="thumbnail col-md-4 col-sm-6" ng-repeat="user in users | filter: search track by $index">
           <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
           <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
@@ -41,7 +51,7 @@
         </div>
       </div>
       <!-- Sidebar & Form -->
-      <div class="col-md-4 col-sm-4" id="sidebar">
+      <div class="col-md-4 col-sm-4 col-xs-12" id="sidebar">
         <form name="userForm" novalidate>
           <div class="form-group">
             <label for="name">Name:</label>
@@ -53,7 +63,8 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" ng-pattern="/^[9|6|7][0-9]{8}$/" id="phone">
+            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" ng-pattern="/^[9|6|7][0-9]{8}$/"
+              id="phone">
           </div>
           <div class="form-group">
             <label for="description">Description:</label>

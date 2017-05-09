@@ -8,8 +8,19 @@ body {
 }
 
 nav.navbar {
-  margin-bottom: 0px;
-  padding-right: 15px;
+  height: 50px;
+}
+
+.navbar-form {
+  display: inline-table;
+  margin-top: 6px;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .navbar-form {
+    margin-right: 15px;
+  }
 }
 
 #sidebar {
