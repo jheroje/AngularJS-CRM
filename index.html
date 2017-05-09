@@ -29,7 +29,7 @@
           <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
           <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
           <div class="caption">
-            <h3>{{user.name}}</h3>
+            <h3 class="name">{{user.name}}</h3>
             <p class="small"><strong>{{user.phone}}</strong></p>
             <p>{{user.position}}</p>
             <p class="description">{{user.description}}</p>
@@ -53,7 +53,7 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" id="phone">
+            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" ng-pattern="/^[9|6|7][0-9]{8}$/" id="phone">
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
