@@ -24,8 +24,8 @@
   <div class="container-fluid" ng-cloak role="main">
     <div class="row">
       <!-- Dashboard & Thumbnails -->
-      <div class="col-md-8" id="dashboard">
-        <div class="thumbnail col-md-4" ng-repeat="user in users | filter: search track by $index">
+      <div class="col-md-8 col-sm-8" id="dashboard">
+        <div class="thumbnail col-md-4 col-sm-6" ng-repeat="user in users | filter: search track by $index">
           <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
           <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
           <div class="caption">
@@ -41,7 +41,7 @@
         </div>
       </div>
       <!-- Sidebar & Form -->
-      <div class="col-md-4" id="sidebar">
+      <div class="col-md-4 col-sm-4" id="sidebar">
         <form name="userForm" novalidate>
           <div class="form-group">
             <label for="name">Name:</label>
