@@ -41,7 +41,7 @@
     <div class="row">
       <!-- Dashboard & Thumbnails -->
       <div class="col-md-8 col-sm-8 col-xs-12" id="dashboard">
-        <div class="thumbnail col-md-4 col-sm-6" ng-repeat="user in users | filter: search | orderBy: sortby track by $index">
+        <div class="thumbnail col-md-4 col-sm-6 col-xs-8" ng-repeat="user in users | filter: search | orderBy: sortby track by $index">
           <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
           <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
           <div class="caption">
@@ -72,7 +72,7 @@
             <label for="phone">Phone:</label>
             <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" ng-pattern="/^[9|6|7][0-9]{8}$/"
               id="phone">
-              <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback" ng-class="{'has-success': userForm.description.$valid}">
             <label for="description">Description:</label>

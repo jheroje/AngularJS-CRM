@@ -21,9 +21,14 @@ nav.navbar {
   .navbar-form {
     margin-right: 15px;
   }
-
-  .navbar-form > div.select {
+  .navbar-form>div.select {
     display: table-cell;
+  }
+  #sidebar {
+    display: none;
+  }
+  #dashboard .thumbnail {
+    float: none;
   }
 }
 
@@ -36,7 +41,15 @@ nav.navbar {
 }
 
 #dashboard {
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#dashboard:after {
+  content: "";
+  flex: auto;
 }
 
 #dashboard .thumbnail {
