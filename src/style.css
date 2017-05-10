@@ -17,10 +17,6 @@ nav.navbar {
   padding: 0;
 }
 
-#toggler {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .navbar-form {
     margin-right: 15px;
