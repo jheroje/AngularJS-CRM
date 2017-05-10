@@ -41,7 +41,7 @@
     <div class="row">
       <!-- Dashboard & Thumbnails -->
       <div class="col-md-8 col-sm-8 col-xs-12" id="dashboard">
-        <div class="thumbnail col-md-4 col-sm-6 col-xs-8" ng-repeat="user in users | filter: search | orderBy: sortby track by $index">
+        <div class="thumbnail col-md-4 col-sm-6 col-xs-12" ng-repeat="user in users | filter: search | orderBy: sortby track by $index">
           <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
           <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
           <div class="caption">
