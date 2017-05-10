@@ -17,6 +17,10 @@ nav.navbar {
   padding: 0;
 }
 
+#toggler {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .navbar-form {
     margin-right: 15px;
@@ -24,7 +28,13 @@ nav.navbar {
   .navbar-form>div.select {
     display: table-cell;
   }
+  #toggler {
+    display: initial;
+  }
   #sidebar {
+    height: 100%;
+  }
+  #sidebar.toggled {
     display: none;
   }
   #dashboard .thumbnail {

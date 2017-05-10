@@ -17,6 +17,7 @@
     $scope.modify = modify;
     $scope.remove = remove;
     $scope.editing = false;
+    $scope.toggle = true;
     load();
 
     ////////////////
