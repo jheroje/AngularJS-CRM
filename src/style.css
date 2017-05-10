@@ -21,6 +21,10 @@ nav.navbar {
   .navbar-form {
     margin-right: 15px;
   }
+
+  .navbar-form > div.select {
+    display: table-cell;
+  }
 }
 
 #sidebar {
