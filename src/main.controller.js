@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('CRM', [])
+    .module('CRM')
     .controller('MainController', MainController);
 
-  MainController.inject = ['$scope'];
+  MainController.inject = ['$scope', 'Users'];
 
-  function MainController($scope) {
+  function MainController($scope, Users) {
     $scope.users = [];
     $scope.new = {};
     $scope.temp = {};
@@ -18,20 +18,18 @@
     $scope.remove = remove;
     $scope.editing = false;
     $scope.toggle = true;
-    load();
+    init();
 
     ////////////////
 
-    function load() {
-      if ("users" in localStorage) {
-        $scope.users = JSON.parse(localStorage.getItem("users"));
-      }
+    function init() {
+      $scope.users = Users.load();
     }
 
     function create(user) {
       $scope.users.push(user);
       reset();
-      save();
+      Users.save($scope.users);
     }
 
     function reset() {
@@ -54,11 +52,7 @@
 
     function remove(user) {
       $scope.users = $scope.users.filter((el) => (el !== user));
-      save();
-    }
-
-    function save() {
-      localStorage.setItem("users", JSON.stringify($scope.users));
+      Users.save($scope.users);
     }
   }
 }());
