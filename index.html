@@ -4,7 +4,7 @@
 <head>
   <title></title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="src/style.css" rel="stylesheet">
@@ -45,7 +45,7 @@
           <img ng-if="user.photo" src="{{user.photo}}" height="200px" width="300px" alt="photo">
           <img ng-if="!user.photo" src="http://placehold.it/300x200" height="200px" width="300px" alt="photo">
           <div class="caption">
-            <h3 class="name">{{user.name}}</h3>
+            <h3 class="name text-capitalize">{{user.name}}</h3>
             <p class="small"><strong>{{user.phone}}</strong></p>
             <p>{{user.position}}</p>
             <p class="description">{{user.description}}</p>
