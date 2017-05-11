@@ -28,7 +28,7 @@ nav.navbar {
     width: 110px;
   }
   #sidebar {
-    height: 100%;
+    height: 90%;
     opacity: 1;
     transition: opacity 0.1s linear;
   }
