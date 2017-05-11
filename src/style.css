@@ -24,9 +24,6 @@ nav.navbar {
   .navbar-form>div.select {
     display: table-cell;
   }
-  #toggler {
-    display: initial;
-  }
   #sidebar {
     height: 100%;
     opacity: 1;
@@ -35,9 +32,6 @@ nav.navbar {
   #sidebar.toggled {
     visibility: hidden;
     opacity: 0;
-  }
-  #dashboard .thumbnail {
-    float: none;
   }
 }
 
