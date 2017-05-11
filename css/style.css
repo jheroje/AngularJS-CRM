@@ -28,13 +28,16 @@ nav.navbar {
     width: 110px;
   }
   #sidebar {
-    height: 90%;
+    height: 100%;
     opacity: 1;
     transition: opacity 0.1s linear;
   }
   #sidebar.toggled {
     visibility: hidden;
     opacity: 0;
+  }
+  #description {
+    height: 4em;
   }
 }
 
