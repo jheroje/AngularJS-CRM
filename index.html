@@ -61,7 +61,7 @@
         <form name="userForm" novalidate>
           <div class="form-group has-feedback" ng-class="{'has-success': userForm.name.$valid}">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" name="name" ng-model="new.name" ng-required="true" id="name">
+            <input type="text" class="form-control" name="name" ng-model="new.name" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" id="name">
             <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
           <div class="form-group">
@@ -70,13 +70,12 @@
           </div>
           <div class="form-group has-feedback" ng-class="{'has-success': userForm.phone.$valid}">
             <label for="phone">Phone:</label>
-            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-required="true" ng-pattern="/^[9|6|7][0-9]{8}$/"
-              id="phone">
+            <input type="text" class="form-control" name="phone" ng-model="new.phone" ng-pattern="/^[9|6|7][0-9]{8}$/" ng-required="true" id="phone">
             <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback" ng-class="{'has-success': userForm.description.$valid}">
             <label for="description">Description:</label>
-            <textarea rows="5" class="form-control" name="description" ng-model="new.description" ng-required="true" id="description"></textarea>
+            <textarea rows="5" class="form-control" name="description" ng-model="new.description" ng-minlength="10" ng-required="true" id="description"></textarea>
             <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback" ng-class="{'has-success': userForm.position.$valid}">
