@@ -24,6 +24,9 @@ nav.navbar {
   .navbar-form>div.select {
     display: table-cell;
   }
+  #searchbar {
+    width: 110px;
+  }
   #sidebar {
     height: 100%;
     opacity: 1;
