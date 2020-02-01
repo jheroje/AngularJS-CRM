@@ -1,0 +1,11 @@
+{
+  "name": "crm",
+  "version": "1.0.0",
+  "description": "Simple CRM in AngularJS",
+  "author": "jheroje",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "1.7.9",
+    "bootstrap": "^3.3.7"
+  }
+}
